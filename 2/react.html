@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    // const h3 = React.createElement(
+    //   "h3",
+    //   {
+    //     onMouseEnter: () => {
+    //       console.log("enterd");
+    //     },
+    //   },
+    //   "Button is HERE"
+    // );
+    // const btn = React.createElement(
+    //   "button",
+    //   {
+    //     onClick: () => console.log("Clicked"),
+    //   },
+    //   "Click me"
+    // );
+
+    const Title = () => (
+      <h3 id="title" onMouseEnter={() => console.log("Entered")}>
+        Button is HERE
+      </h3>
+    );
+    const Btn = () => (
+      <button onClick={() => console.log("Clicked")}>Click me</button>
+    );
+
+    // const containter = React.createElement("div", null, [Tittle, Btn]);
+
+    const Container = () => (
+      <div>
+        <Title></Title>
+        <Btn></Btn>
+      </div>
+    );
+
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
