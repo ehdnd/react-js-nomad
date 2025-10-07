@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const Btn = ({ text, fontSize = 14 }) => {
+      return (
+        <button
+          style={{
+            backgroundColor: "teal",
+            color: "white",
+            padding: "10px 20px",
+            border: "0",
+            borderRadius: 10,
+            fontSize,
+          }}
+        >
+          {text}
+        </button>
+      );
+    };
+
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+
+    // react.development.js:199 Warning: Failed prop type: Invalid prop `text` of type `number` supplied to `Btn`, expected `string`.at Btn (<anonymous>:5:19)
+
+    const App = () => {
+      return (
+        <div>
+          {/*<Btn text={10} fontSize={"hi"} />*/}
+          <Btn text={"hi"} fontSize={20} />
+          <Btn text={"10"} />
+        </div>
+      );
+    };
+
+    root.render(<App />);
+  </script>
+</html>

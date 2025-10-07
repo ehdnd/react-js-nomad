@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    // Btn({banana: "save changes"})
+    // const Btn = (props) => {
+    const Btn = ({ text }) => {
+      // console.log(props);
+      // {text: 'Continue'}
+      return (
+        <button
+          style={{
+            backgroundColor: "teal",
+            color: "white",
+            pading: "10px 20px",
+            border: "0",
+            borderRadius: 10,
+          }}
+        >
+          {text}
+        </button>
+      );
+    };
+
+    const App = () => {
+      return (
+        <div>
+          <Btn text="Save Changes" />
+          <Btn text="Continue" />
+        </div>
+      );
+    };
+
+    root.render(<App />);
+  </script>
+</html>
