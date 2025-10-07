@@ -5,17 +5,21 @@ import styles from "./App.module.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const plusCount = () => setCount((current) => current + 1);
+  const [keyword, setKeyword] = useState("");
 
-  const runOnce = () => console.log("call API");
-  // 이 코드까지 모두 실행된다. 난 이게 처음 로딩시에만 실행되었으면 함
-  // console.log("call API");
-  useEffect(runOnce, []);
+  const onClick = () => setCount((cur) => cur + 1);
+  const onChange = (event) => setKeyword(event.target.value);
+
+  console.log("run");
+  console.log("search API call:", keyword);
 
   return (
     <div>
+      <input type="text" onChange={onChange} />
+      <h1 className={styles.title}>{keyword}</h1>
+      <Btn text={"Search"}></Btn>
       <h1 className={styles.title}>{count}</h1>
-      <Btn onClick={plusCount} text={"Welcome"}></Btn>
+      <Btn text={"countup"} onClick={onClick}></Btn>
     </div>
   );
 }
