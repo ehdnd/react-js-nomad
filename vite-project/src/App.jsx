@@ -1,8 +1,12 @@
+import Btn from "./Btn";
+import styles from "./App.module.css";
+
 function App() {
   return (
-    <>
-      <h1>HI</h1>
-    </>
+    <div>
+      <h1 className={styles.title}>HI</h1>
+      <Btn text={"Welcome"}></Btn>
+    </div>
   );
 }
 
